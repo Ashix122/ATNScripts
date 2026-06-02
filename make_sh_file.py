@@ -9,6 +9,10 @@ def main():
         sys.exit(1)
 
     filename = sys.argv[1]
+   
+
+    if not os.path.isfile(filename):
+    	raise FileNotFoundError(f"Parameter file not found: {filename}")
     data=filename.removesuffix(".par").removeprefix("brill_twist_zsymmetric_").split("_")
     data1="_".join(data[4:])
     data2="_".join(data)
